@@ -39,3 +39,22 @@ button.secondary { background: #00B894; }
   .sidebar { display: none; }
   .device-list { grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); }
 }
+
+.network-health {
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  margin-bottom: 16px;
+}
+
+.trust-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.trust-bar div {
+  height: 100%;
+  background: linear-gradient(90deg,#00B894,#6C5CE7);
+}

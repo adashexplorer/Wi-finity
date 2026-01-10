@@ -1,0 +1,27 @@
+alerts:
+  get:
+    tags: [Alerts]
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../components/schemas/alert.yaml#/Alert"
+
+ack:
+  post:
+    tags: [Alerts]
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/common.yaml#/ActionResponse"

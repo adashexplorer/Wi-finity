@@ -1,0 +1,22 @@
+overview:
+  get:
+    tags: [Insights]
+    summary: Network insights
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/insights.yaml#/InsightsOverview"
+
+deviceInsights:
+  get:
+    tags: [Insights]
+    parameters:
+      - $ref: "../components/parameters/device-id.yaml#/DeviceId"
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/insights.yaml#/DeviceInsights"

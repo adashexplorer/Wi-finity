@@ -1,0 +1,16 @@
+InsightsOverview:
+  type: object
+  properties:
+    totalDevices: { type: integer }
+    onlineDevices: { type: integer }
+    averageTrustScore: { type: number }
+    riskLevel: { type: string }
+
+DeviceInsights:
+  type: object
+  properties:
+    deviceId: { type: string }
+    anomalyScore: { type: number }
+    recommendations:
+      type: array
+      items: { type: string }

@@ -2,9 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+
 import Dashboard from "./pages/Dashboard";
 import DeviceDetails from "./pages/DeviceDetails";
 import Settings from "./pages/Settings";
+import Insights from "./pages/Insights";
+
 import { DeviceProvider } from "./context/DeviceContext";
 
 const App: React.FC = () => (
@@ -17,6 +20,7 @@ const App: React.FC = () => (
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/device/:id" element={<DeviceDetails />} />
+            <Route path="/insights" element={<Insights />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>

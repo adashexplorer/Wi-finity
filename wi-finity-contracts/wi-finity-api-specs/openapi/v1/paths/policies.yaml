@@ -1,0 +1,26 @@
+policies:
+  get:
+    tags: [Policies]
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../components/schemas/policy.yaml#/Policy"
+
+  post:
+    tags: [Policies]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/policy.yaml#/Policy"
+    responses:
+      '201':
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/policy.yaml#/Policy"

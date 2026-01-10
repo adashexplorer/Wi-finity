@@ -1,0 +1,26 @@
+Device:
+  type: object
+  properties:
+    id: { type: string }
+    name: { type: string }
+    ip: { type: string }
+    mac: { type: string }
+    status: { type: string, enum: [online, offline] }
+    bandwidthLimit: { type: integer }
+    trustScore: { type: integer }
+    lastSeen: { type: integer, format: int64 }
+    riskFlags:
+      type: array
+      items: { type: string }
+
+DeviceUpdate:
+  type: object
+  properties:
+    name: { type: string }
+    bandwidthLimit: { type: integer }
+
+DeviceHistory:
+  type: object
+  properties:
+    timestamp: { type: integer, format: int64 }
+    event: { type: string }

@@ -1,0 +1,71 @@
+devices:
+  get:
+    tags: [Devices]
+    summary: List devices
+    responses:
+      '200':
+        description: Device list
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../components/schemas/device.yaml#/Device"
+
+deviceById:
+  get:
+    tags: [Devices]
+    parameters:
+      - $ref: "../components/parameters/device-id.yaml#/DeviceId"
+    responses:
+      '200':
+        description: Device details
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/device.yaml#/Device"
+
+  patch:
+    tags: [Devices]
+    parameters:
+      - $ref: "../components/parameters/device-id.yaml#/DeviceId"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/device.yaml#/DeviceUpdate"
+    responses:
+      '200':
+        description: Updated device
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/device.yaml#/Device"
+
+scan:
+  post:
+    tags: [Devices]
+    summary: Scan network
+    responses:
+      '202':
+        description: Scan started
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/common.yaml#/ActionResponse"
+
+history:
+  get:
+    tags: [Devices]
+    parameters:
+      - $ref: "../components/parameters/device-id.yaml#/DeviceId"
+    responses:
+      '200':
+        description: Device history
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../components/schemas/device.yaml#/DeviceHistory"

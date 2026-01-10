@@ -1,0 +1,99 @@
+components:
+  schemas:
+
+    Device:
+      type: object
+      required:
+        - id
+        - name
+        - ip
+        - status
+        - mac
+        - bandwidthLimit
+      properties:
+        id:
+          type: string
+          example: "1"
+        name:
+          type: string
+          example: "MacBook Pro"
+        ip:
+          type: string
+          example: "192.168.1.2"
+        mac:
+          type: string
+          example: "AA:BB:CC:DD:EE:01"
+        status:
+          type: string
+          enum: [online, offline]
+        bandwidthLimit:
+          type: integer
+          description: Mbps
+          example: 200
+        trustScore:
+          type: integer
+          minimum: 0
+          maximum: 100
+          example: 85
+        lastSeen:
+          type: integer
+          format: int64
+          description: Epoch timestamp (ms)
+        riskFlags:
+          type: array
+          items:
+            type: string
+          example: ["LOW_LIMIT", "OFFLINE"]
+        location:
+          type: object
+          properties:
+            x:
+              type: number
+              example: 45
+            y:
+              type: number
+              example: 60
+
+    DeviceUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Office Laptop"
+        bandwidthLimit:
+          type: integer
+          example: 150
+        trustScore:
+          type: integer
+          minimum: 0
+          maximum: 100
+          example: 70
+
+    ScanResponse:
+      type: object
+      properties:
+        scanId:
+          type: string
+          example: "scan-2025-01"
+        status:
+          type: string
+          example: "IN_PROGRESS"
+        startedAt:
+          type: integer
+          format: int64
+
+    DeviceHistoryEvent:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+        eventType:
+          type: string
+          example: "STATUS_CHANGE"
+        previousValue:
+          type: string
+          example: "online"
+        currentValue:
+          type: string
+          example: "offline"

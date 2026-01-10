@@ -1,0 +1,8 @@
+securitySchemes:
+  bearerAuth:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+    description: |
+      Enter a Bearer token.
+      Example (local dev): mock-admin-token

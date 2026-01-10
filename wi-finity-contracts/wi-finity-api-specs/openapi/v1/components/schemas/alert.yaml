@@ -1,0 +1,9 @@
+Alert:
+  type: object
+  properties:
+    id: { type: string }
+    deviceId: { type: string }
+    type: { type: string }
+    message: { type: string }
+    createdAt: { type: integer, format: int64 }
+    acknowledged: { type: boolean }

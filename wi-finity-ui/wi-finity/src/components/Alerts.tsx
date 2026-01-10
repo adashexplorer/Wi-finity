@@ -11,20 +11,52 @@ const Alerts: React.FC = () => {
     const next: AlertItem[] = [];
 
     devices.forEach(d => {
-      if (d.status === "offline") next.push({ id: d.id + "-offline", message: `${d.name} is offline`, type: "alert" });
-      if (d.bandwidthLimit && d.bandwidthLimit < 50) next.push({ id: d.id + "-lowlimit", message: `${d.name} bandwidth limit is low (${d.bandwidthLimit} Mbps)`, type: "warning" });
+      if (d.status === "offline") {
+        next.push({
+          id: d.id + "-offline",
+          message: `${d.name} is offline`,
+          type: "alert"
+        });
+      }
+
+      if (d.bandwidthLimit && d.bandwidthLimit < 50) {
+        next.push({
+          id: d.id + "-lowlimit",
+          message: `${d.name} bandwidth limit is low (${d.bandwidthLimit} Mbps)`,
+          type: "warning"
+        });
+      }
+
+      // ✅ ADD HERE — Trust Score alert
+      if (d.trustScore !== undefined && d.trustScore < 40) {
+        next.push({
+          id: d.id + "-risk",
+          message: `${d.name} has low trust score (${d.trustScore})`,
+          type: "alert"
+        });
+      }
     });
 
     setAlerts(next);
   }, [devices]);
 
-  if (!alerts.length) return <div className="alerts"><h3>Alerts</h3><p>No alerts</p></div>;
+  if (!alerts.length)
+    return (
+      <div className="alerts">
+        <h3>Alerts</h3>
+        <p>No alerts</p>
+      </div>
+    );
 
   return (
     <div className="alerts">
       <h3>Alerts</h3>
       <ul>
-        {alerts.map(a => <li key={a.id} className={a.type}>{a.message}</li>)}
+        {alerts.map(a => (
+          <li key={a.id} className={a.type}>
+            {a.message}
+          </li>
+        ))}
       </ul>
     </div>
   );

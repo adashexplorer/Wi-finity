@@ -7,6 +7,7 @@ const Sidebar: React.FC = () => (
       <ul style={{ padding: 0, listStyle: "none" }}>
         <li style={{ marginBottom: 10 }}><Link to="/">Dashboard</Link></li>
         <li style={{ marginBottom: 10 }}><Link to="/settings">Settings</Link></li>
+        <li style={{ marginBottom: 10 }}><Link to="/insights">Insights</Link></li>
       </ul>
     </nav>
   </aside>

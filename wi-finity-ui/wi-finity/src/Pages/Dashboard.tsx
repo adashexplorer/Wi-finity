@@ -5,6 +5,8 @@ import InteractiveChart from "../components/InteractiveChart";
 import DeviceMap from "../components/DeviceMap";
 import PerDeviceBandwidth from "../components/PerDeviceBandwidth";
 import Alerts from "../components/Alerts";
+import NetworkHealth from "../components/NetworkHealth";
+import BandwidthReplay from "../components/BandwidthReplay";
 
 const Dashboard: React.FC = () => {
   return (
@@ -20,6 +22,8 @@ const Dashboard: React.FC = () => {
           <DeviceMap />
           <PerDeviceBandwidth />
           <Alerts />
+          <NetworkHealth />
+          <BandwidthReplay/>
         </aside>
       </div>
     </div>

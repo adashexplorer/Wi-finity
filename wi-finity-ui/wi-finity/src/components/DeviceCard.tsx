@@ -23,6 +23,9 @@ const DeviceCard: React.FC<Props> = ({ id, name, ip, status, mac, bandwidthLimit
           <div style={{ fontSize: 13, color: "#6b7280" }}>{ip}</div>
           <div style={{ fontSize: 12, color: "#9ca3af" }}>{mac}</div>
         </div>
+        <div style={{ fontSize: 12 }}>
+              Trust: <strong>{bandwidthLimit < 40 ? "Low" : "Good"}</strong>
+        </div>
         <div style={{ textAlign: "right" }}>
           <div className="badge">{status.toUpperCase()}</div>
           <div style={{ marginTop: 6 }}>

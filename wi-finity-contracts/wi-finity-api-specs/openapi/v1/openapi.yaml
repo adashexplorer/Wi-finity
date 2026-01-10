@@ -1,0 +1,54 @@
+openapi: 3.0.3
+
+info:
+  title: Wi-Finity API
+  version: 1.0.0
+  description: Enterprise-grade Network Intelligence Platform
+
+servers:
+  - url: http://localhost:4010
+
+tags:
+  - name: Devices
+  - name: Insights
+  - name: Alerts
+  - name: Policies
+  - name: Audit
+
+security:
+  - bearerAuth: []
+
+paths:
+  /devices:
+    $ref: "./paths/devices.yaml#/devices"
+
+  /devices/{id}:
+    $ref: "./paths/devices.yaml#/deviceById"
+
+  /devices/scan:
+    $ref: "./paths/devices.yaml#/scan"
+
+  /devices/{id}/history:
+    $ref: "./paths/devices.yaml#/history"
+
+  /insights/overview:
+    $ref: "./paths/insights.yaml#/overview"
+
+  /insights/devices/{id}:
+    $ref: "./paths/insights.yaml#/deviceInsights"
+
+  /alerts:
+    $ref: "./paths/alerts.yaml#/alerts"
+
+  /alerts/{id}/ack:
+    $ref: "./paths/alerts.yaml#/ack"
+
+  /policies:
+    $ref: "./paths/policies.yaml#/policies"
+
+  /audit/logs:
+    $ref: "./paths/audit.yaml#/auditLogs"
+
+components:
+  securitySchemes:
+    $ref: "./components/security/security.yaml#/securitySchemes"

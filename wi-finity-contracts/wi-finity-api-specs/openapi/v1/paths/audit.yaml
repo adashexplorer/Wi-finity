@@ -1,0 +1,11 @@
+auditLogs:
+  get:
+    tags: [Audit]
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../components/schemas/audit.yaml#/AuditLog"
